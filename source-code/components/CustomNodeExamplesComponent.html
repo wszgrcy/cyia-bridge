@@ -1,0 +1,815 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-bridge documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ngx-bridge documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CustomNodeExamplesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/custom-node-examples/custom-node-examples.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-custom-node-examples</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactOutlet</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./custom-node-examples.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./custom-node-examples.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="##environmentInjector" >#environmentInjector</a>
+                            </li>
+                            <li>
+                                <a href="#Background" >Background</a>
+                            </li>
+                            <li>
+                                <a href="#Controls" >Controls</a>
+                            </li>
+                            <li>
+                                <a href="#custom" >custom</a>
+                            </li>
+                            <li>
+                                <a href="#MiniMap" >MiniMap</a>
+                            </li>
+                            <li>
+                                <a href="#miniMapConfig" >miniMapConfig</a>
+                            </li>
+                            <li>
+                                <a href="#reactBProps" >reactBProps</a>
+                            </li>
+                            <li>
+                                <a href="#ReactFlow" >ReactFlow</a>
+                            </li>
+                            <li>
+                                <a href="#switchValue" >switchValue</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changMiniMapConfig" >changMiniMapConfig</a>
+                            </li>
+                            <li>
+                                <a href="#switch" >switch</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changMiniMapConfig"></a>
+                    <span class="name">
+                        <span ><b>changMiniMapConfig</b></span>
+                        <a href="#changMiniMapConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changMiniMapConfig()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="switch"></a>
+                    <span class="name">
+                        <span ><b>switch</b></span>
+                        <a href="#switch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>switch()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="#environmentInjector"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>#environmentInjector</b></span>
+                        <a href="##environmentInjector"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(EnvironmentInjector)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Background"></a>
+                    <span class="name">
+                        <span ><b>Background</b></span>
+                        <a href="#Background"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Background</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controls"></a>
+                    <span class="name">
+                        <span ><b>Controls</b></span>
+                        <a href="#Controls"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Controls</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="custom"></a>
+                    <span class="name">
+                        <span ><b>custom</b></span>
+                        <a href="#custom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MiniMap"></a>
+                    <span class="name">
+                        <span ><b>MiniMap</b></span>
+                        <a href="#MiniMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>MiniMap</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="miniMapConfig"></a>
+                    <span class="name">
+                        <span ><b>miniMapConfig</b></span>
+                        <a href="#miniMapConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ zoomable: true, pannable: true }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reactBProps"></a>
+                    <span class="name">
+                        <span ><b>reactBProps</b></span>
+                        <a href="#reactBProps"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ReactFlow"></a>
+                    <span class="name">
+                        <span ><b>ReactFlow</b></span>
+                        <a href="#ReactFlow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="switchValue"></a>
+                    <span class="name">
+                        <span ><b>switchValue</b></span>
+                        <a href="#switchValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/custom-node-examples/custom-node-examples.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EnvironmentInjector, inject } from &#x27;@angular/core&#x27;;
+import { ReactOutlet, componentWrapper } from &#x27;@cyia/ngx-bridge&#x27;;
+import { createElement, useMemo } from &#x27;react&#x27;;
+import {
+  ReactFlow,
+  MiniMap,
+  useNodesState,
+  useEdgesState,
+  Background,
+  Controls,
+  useUpdateNodeInternals,
+} from &#x27;reactflow&#x27;;
+import { NgAComponent } from &#x27;../ng-a.component&#x27;;
+import { CustomNodeComponent } from &#x27;../custom-node/custom-node.component&#x27;;
+import { defaultNodes, initialEdges } from &#x27;./nodes-edges&#x27;;
+import { RCustom2 } from &#x27;./custom-node2&#x27;;
+
+@Component({
+  selector: &#x27;app-custom-node-examples&#x27;,
+  standalone: true,
+  imports: [ReactOutlet],
+  templateUrl: &#x27;./custom-node-examples.component.html&#x27;,
+  styleUrl: &#x27;./custom-node-examples.component.scss&#x27;,
+})
+export class CustomNodeExamplesComponent {
+  #environmentInjector &#x3D; inject(EnvironmentInjector);
+
+  // 直接调用
+  // ReactFlow &#x3D; ReactFlow
+  // 需要上下文调用,可以改 component 也可以改 props 都带上下文
+  ReactFlow &#x3D; (props: any) &#x3D;&gt; {
+    const [nodes, setNodes, onNodesChange] &#x3D; useNodesState(props.nodes);
+    const [edges, setEdges, onEdgesChange] &#x3D; useEdgesState(props.edges);
+
+    return createElement(
+      ReactFlow,
+      { ...props, nodes, edges, onNodesChange, onEdgesChange },
+      props.children
+    );
+  };
+  MiniMap &#x3D; MiniMap;
+  Background &#x3D; Background;
+  Controls &#x3D; Controls;
+
+  switchValue &#x3D; true;
+
+  custom &#x3D; () &#x3D;&gt; {
+    return {
+      props: {
+        nodes: defaultNodes,
+        edges: initialEdges,
+        nodeTypes: useMemo(
+          () &#x3D;&gt; ({
+            customNode: componentWrapper(
+              CustomNodeComponent,
+              {
+                environmentInjector: this.#environmentInjector,
+              },
+              (props) &#x3D;&gt; {
+                const updateNodeInternals &#x3D; useUpdateNodeInternals();
+                return useMemo(
+                  () &#x3D;&gt; ({
+                    output: {
+                      update: () &#x3D;&gt; {
+                        updateNodeInternals(props.id);
+                      },
+                    },
+                  }),
+                  [props]
+                );
+              }
+            ).reactFunctionComponent,
+            customNode2: RCustom2,
+          }),
+          []
+        ),
+      },
+    };
+  };
+  reactBProps &#x3D; () &#x3D;&gt; {
+    return {
+      el: componentWrapper(NgAComponent, {
+        environmentInjector: this.#environmentInjector,
+      }).reactElement,
+    };
+  };
+  switch() {
+    this.switchValue &#x3D; !this.switchValue;
+  }
+  miniMapConfig &#x3D; { zoomable: true, pannable: true };
+  changMiniMapConfig() {
+    this.miniMapConfig &#x3D; { zoomable: false, pannable: false };
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;react-outlet
+  [component]&#x3D;&quot;ReactFlow&quot;
+  style&#x3D;&quot;display: block; height: 500px&quot;
+  [root]&#x3D;&quot;true&quot;
+  [runInReact]&#x3D;&quot;custom&quot;
+&gt;
+  @if (switchValue) {
+
+  &lt;react-outlet
+    [component]&#x3D;&quot;MiniMap&quot;
+    #child
+    [props]&#x3D;&quot;miniMapConfig&quot;
+  &gt;&lt;/react-outlet&gt;
+  }
+  &lt;react-outlet [component]&#x3D;&quot;Background&quot; #child&gt;&lt;/react-outlet&gt;
+  &lt;react-outlet [component]&#x3D;&quot;Controls&quot; #child&gt;&lt;/react-outlet&gt;
+&lt;/react-outlet&gt;
+
+&lt;button (click)&#x3D;&quot;switch()&quot;&gt;切换&lt;/button&gt;
+&lt;button (click)&#x3D;&quot;changMiniMapConfig()&quot;&gt;切换MiniMap配置&lt;/button&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><react-outlet  [component]="ReactFlow"  style="display: block; height: 500px"  [root]="true"  [runInReact]="custom">  @if (switchValue) {  <react-outlet    [component]="MiniMap"    #child    [props]="miniMapConfig"  ></react-outlet>  }  <react-outlet [component]="Background" #child></react-outlet>  <react-outlet [component]="Controls" #child></react-outlet></react-outlet><button (click)="switch()">切换</button><button (click)="changMiniMapConfig()">切换MiniMap配置</button></div>'
+    var COMPONENTS = [{'name': 'AntdDemoComponent', 'selector': 'app-antd-demo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'CustomLayoutComponent', 'selector': 'app-custom-layout'},{'name': 'CustomNode2Component', 'selector': 'app-custom-node'},{'name': 'CustomNodeComponent', 'selector': 'app-custom-node'},{'name': 'CustomNodeExamplesComponent', 'selector': 'app-custom-node-examples'},{'name': 'CustomTitleComponent', 'selector': ''},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'HelloComponent', 'selector': 'app-hello'},{'name': 'MenubarComponent', 'selector': 'app-menubar'},{'name': 'NgAComponent', 'selector': 'ng-a'},{'name': 'PdfDemoComponent', 'selector': 'app-pdf-demo'},{'name': 'ReactDndDemoComponent', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent2', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent3', 'selector': 'app-react-dnd-demo'},{'name': 'ReactHookFormDemoComponent', 'selector': 'app-react-hook-form-demo'},{'name': 'ReactIconDemoComponent', 'selector': 'app-react-icon-demo'},{'name': 'ReactSpinnersDemoComponent', 'selector': 'app-react-spinners-demo'},{'name': 'RichTextComponent', 'selector': 'app-rich-text'},{'name': 'TipTapDemoComponent', 'selector': ''},{'name': 'TipTapHelloComponent', 'selector': 'app-hello'},{'name': 'ToastComponent', 'selector': 'app-toast'}];
+    var DIRECTIVES = [{'name': 'InputDirective', 'selector': '[reactInput]'}];
+    var ACTUAL_COMPONENT = {'name': 'CustomNodeExamplesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CustomNodeExamplesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

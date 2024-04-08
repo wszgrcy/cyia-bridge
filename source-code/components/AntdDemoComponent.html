@@ -1,0 +1,600 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-bridge documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ngx-bridge documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AntdDemoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/antd/antd-demo/antd-demo.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-antd-demo</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactOutlet</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./antd-demo.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./antd-demo.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#Button" >Button</a>
+                            </li>
+                            <li>
+                                <a href="#Flex" >Flex</a>
+                            </li>
+                            <li>
+                                <a href="#testClick" >testClick</a>
+                            </li>
+                            <li>
+                                <a href="#Tree" >Tree</a>
+                            </li>
+                            <li>
+                                <a href="#treeContext" >treeContext</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Button"></a>
+                    <span class="name">
+                        <span ><b>Button</b></span>
+                        <a href="#Button"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Button</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/antd/antd-demo/antd-demo.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Flex"></a>
+                    <span class="name">
+                        <span ><b>Flex</b></span>
+                        <a href="#Flex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Flex</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/antd/antd-demo/antd-demo.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testClick"></a>
+                    <span class="name">
+                        <span ><b>testClick</b></span>
+                        <a href="#testClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/antd/antd-demo/antd-demo.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Tree"></a>
+                    <span class="name">
+                        <span ><b>Tree</b></span>
+                        <a href="#Tree"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Tree</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/antd/antd-demo/antd-demo.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="treeContext"></a>
+                    <span class="name">
+                        <span ><b>treeContext</b></span>
+                        <a href="#treeContext"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/antd/antd-demo/antd-demo.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { ReactOutlet, componentWrapper } from &#x27;@cyia/ngx-bridge&#x27;;
+import { Flex, Button, Tree, TreeDataNode, TreeProps } from &#x27;antd&#x27;;
+import { CustomTitleComponent } from &#x27;./custom-title.component&#x27;;
+import { useMemo } from &#x27;react&#x27;;
+const treeData: TreeDataNode[] &#x3D; [
+  {
+    title: &#x27;parent 1&#x27;,
+    key: &#x27;0-0&#x27;,
+    children: [
+      {
+        title: &#x27;parent 1-0&#x27;,
+        key: &#x27;0-0-0&#x27;,
+        disabled: true,
+        children: [
+          {
+            title: &#x27;leaf&#x27;,
+            key: &#x27;0-0-0-0&#x27;,
+            disableCheckbox: true,
+          },
+          {
+            title: &#x27;leaf&#x27;,
+            key: &#x27;0-0-0-1&#x27;,
+          },
+        ],
+      },
+      {
+        title: &#x27;parent 1-1&#x27;,
+        key: &#x27;0-0-1&#x27;,
+        children: [
+          {
+            title: componentWrapper(CustomTitleComponent).reactElement,
+            key: &#x27;0-0-1-0&#x27;,
+          },
+        ],
+      },
+    ],
+  },
+];
+@Component({
+  selector: &#x27;app-antd-demo&#x27;,
+  standalone: true,
+  imports: [ReactOutlet],
+  templateUrl: &#x27;./antd-demo.component.html&#x27;,
+  styleUrl: &#x27;./antd-demo.component.scss&#x27;,
+})
+export class AntdDemoComponent {
+  Flex &#x3D; Flex;
+  Button &#x3D; Button;
+  Tree &#x3D; Tree;
+  testClick &#x3D; (event: any) &#x3D;&gt; {
+    console.log(event);
+    console.log(this);
+  };
+  treeContext &#x3D; () &#x3D;&gt; {
+    const onSelect: TreeProps[&#x27;onSelect&#x27;] &#x3D; (selectedKeys, info) &#x3D;&gt; {
+      console.log(&#x27;selected&#x27;, selectedKeys, info);
+    };
+
+    const onCheck: TreeProps[&#x27;onCheck&#x27;] &#x3D; (checkedKeys, info) &#x3D;&gt; {
+      console.log(&#x27;onCheck&#x27;, checkedKeys, info);
+    };
+    return useMemo(
+      () &#x3D;&gt; ({
+        props: {
+          checkable: true,
+          defaultExpandedKeys: [&#x27;0-0-0&#x27;, &#x27;0-0-1&#x27;],
+          defaultSelectedKeys: [&#x27;0-0-0&#x27;, &#x27;0-0-1&#x27;],
+          defaultCheckedKeys: [&#x27;0-0-0&#x27;, &#x27;0-0-1&#x27;],
+          onSelect: onSelect,
+          onCheck: onCheck,
+          treeData: treeData,
+        },
+      }),
+      []
+    );
+  };
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;react-outlet
+  [root]&#x3D;&quot;true&quot;
+  [component]&#x3D;&quot;Flex&quot;
+  [props]&#x3D;&quot;{ gap: &#x27;small&#x27;, wrap: &#x27;wrap&#x27; }&quot;
+&gt;
+  &lt;react-outlet
+    [component]&#x3D;&quot;Button&quot;
+    [props]&#x3D;&quot;{ type: &#x27;primary&#x27;, onClick:testClick}&quot;
+    [children]&#x3D;&quot;[&#x27;Primary Button&#x27;]&quot;
+    #child
+  &gt;&lt;/react-outlet&gt;
+  &lt;react-outlet
+    [component]&#x3D;&quot;Button&quot;
+    #child
+    [children]&#x3D;&quot;[&#x27;Default Button&#x27;]&quot;
+  &gt;&lt;/react-outlet&gt;
+  &lt;react-outlet
+    [component]&#x3D;&quot;Button&quot;
+    [props]&#x3D;&quot;{ type: &#x27;dashed&#x27; }&quot;
+    [children]&#x3D;&quot;[&#x27;Dashed Button&#x27;]&quot;
+    #child
+  &gt;&lt;/react-outlet&gt;
+  &lt;react-outlet
+    [component]&#x3D;&quot;Button&quot;
+    [props]&#x3D;&quot;{ type: &#x27;text&#x27; }&quot;
+    [children]&#x3D;&quot;[&#x27;Text Button&#x27;]&quot;
+    #child
+  &gt;&lt;/react-outlet&gt;
+  &lt;react-outlet
+    [component]&#x3D;&quot;Button&quot;
+    [props]&#x3D;&quot;{ type: &#x27;link&#x27; }&quot;
+    [children]&#x3D;&quot;[&#x27;Link Button&#x27;]&quot;
+    #child
+  &gt;&lt;/react-outlet&gt;
+&lt;/react-outlet&gt;
+
+&lt;react-outlet [root]&#x3D;&quot;true&quot; [component]&#x3D;&quot;Tree&quot; [runInReact]&#x3D;&quot;treeContext&quot;&gt;&lt;/react-outlet&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><react-outlet  [root]="true"  [component]="Flex"  [props]="{ gap: \'small\', wrap: \'wrap\' }">  <react-outlet    [component]="Button"    [props]="{ type: \'primary\', onClick:testClick}"    [children]="[\'Primary Button\']"    #child  ></react-outlet>  <react-outlet    [component]="Button"    #child    [children]="[\'Default Button\']"  ></react-outlet>  <react-outlet    [component]="Button"    [props]="{ type: \'dashed\' }"    [children]="[\'Dashed Button\']"    #child  ></react-outlet>  <react-outlet    [component]="Button"    [props]="{ type: \'text\' }"    [children]="[\'Text Button\']"    #child  ></react-outlet>  <react-outlet    [component]="Button"    [props]="{ type: \'link\' }"    [children]="[\'Link Button\']"    #child  ></react-outlet></react-outlet><react-outlet [root]="true" [component]="Tree" [runInReact]="treeContext"></react-outlet></div>'
+    var COMPONENTS = [{'name': 'AntdDemoComponent', 'selector': 'app-antd-demo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'CustomLayoutComponent', 'selector': 'app-custom-layout'},{'name': 'CustomNode2Component', 'selector': 'app-custom-node'},{'name': 'CustomNodeComponent', 'selector': 'app-custom-node'},{'name': 'CustomNodeExamplesComponent', 'selector': 'app-custom-node-examples'},{'name': 'CustomTitleComponent', 'selector': ''},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'HelloComponent', 'selector': 'app-hello'},{'name': 'MenubarComponent', 'selector': 'app-menubar'},{'name': 'NgAComponent', 'selector': 'ng-a'},{'name': 'PdfDemoComponent', 'selector': 'app-pdf-demo'},{'name': 'ReactDndDemoComponent', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent2', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent3', 'selector': 'app-react-dnd-demo'},{'name': 'ReactHookFormDemoComponent', 'selector': 'app-react-hook-form-demo'},{'name': 'ReactIconDemoComponent', 'selector': 'app-react-icon-demo'},{'name': 'ReactSpinnersDemoComponent', 'selector': 'app-react-spinners-demo'},{'name': 'RichTextComponent', 'selector': 'app-rich-text'},{'name': 'TipTapDemoComponent', 'selector': ''},{'name': 'TipTapHelloComponent', 'selector': 'app-hello'},{'name': 'ToastComponent', 'selector': 'app-toast'}];
+    var DIRECTIVES = [{'name': 'InputDirective', 'selector': '[reactInput]'}];
+    var ACTUAL_COMPONENT = {'name': 'AntdDemoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AntdDemoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
