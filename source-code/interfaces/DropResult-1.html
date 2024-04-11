@@ -212,7 +212,7 @@
 import { ItemTypes } from &#x27;../types&#x27;;
 import { useDrag } from &#x27;react-dnd&#x27;;
 import { CSSProperties } from &#x27;react&#x27;;
-import { ComponentInReact, useSyncExternalStoreShim } from &#x27;@cyia/ngx-bridge&#x27;;
+import { ComponentInReact, useNgSignal } from &#x27;@cyia/ngx-bridge&#x27;;
 const style: CSSProperties &#x3D; {
   border: &#x27;1px dashed gray&#x27;,
   backgroundColor: &#x27;white&#x27;,
@@ -239,10 +239,7 @@ interface DropResult {
 })
 export class BoxComponent extends ComponentInReact {
   runInReact &#x3D; () &#x3D;&gt; {
-    let { name } &#x3D; useSyncExternalStoreShim(
-      this.propsSubscribe.subscribe,
-      this.propsSubscribe.getSnapshot
-    );
+    let { name } &#x3D; useNgSignal(this.propsSubscribe);
     const [{ isDragging }, drag] &#x3D; useDrag(() &#x3D;&gt; ({
       type: ItemTypes.BOX,
       item: { name },
