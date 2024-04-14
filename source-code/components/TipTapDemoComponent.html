@@ -374,7 +374,7 @@
   inject,
   viewChild,
 } from &#x27;@angular/core&#x27;;
-import { ReactOutlet, componentWrapper } from &#x27;@cyia/ngx-bridge&#x27;;
+import { ReactOutlet, wrapperToReact } from &#x27;@cyia/ngx-bridge&#x27;;
 import { EditorProvider, FloatingMenu, BubbleMenu } from &#x27;@tiptap/react&#x27;;
 import StarterKit from &#x27;@tiptap/starter-kit&#x27;;
 import { createElement, useMemo } from &#x27;react&#x27;;
@@ -402,7 +402,7 @@ export class TipTapDemoComponent {
     return useMemo(
       () &#x3D;&gt; ({
         props: {
-          slotBefore: componentWrapper(MenubarComponent, {}).reactElement,
+          slotBefore: wrapperToReact(MenubarComponent, {}).reactElement,
           extensions: extensions,
           content: content,
         },
@@ -447,7 +447,7 @@ export class TipTapDemoComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><react-outlet [component]="EditorProvider" [root]="true" [runInReact]="custom"></react-outlet></div>'
-    var COMPONENTS = [{'name': 'AntdDemoComponent', 'selector': 'app-antd-demo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'CustomLayoutComponent', 'selector': 'app-custom-layout'},{'name': 'CustomNode2Component', 'selector': 'app-custom-node'},{'name': 'CustomNodeComponent', 'selector': 'app-custom-node'},{'name': 'CustomNodeExamplesComponent', 'selector': 'app-custom-node-examples'},{'name': 'CustomTitleComponent', 'selector': ''},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'ExcalidrawDemoComponent', 'selector': 'app-excalidraw-demo'},{'name': 'HelloComponent', 'selector': 'app-hello'},{'name': 'MenubarComponent', 'selector': 'app-menubar'},{'name': 'NgAComponent', 'selector': 'ng-a'},{'name': 'PdfDemoComponent', 'selector': 'app-pdf-demo'},{'name': 'ReactDndDemoComponent', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent2', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent3', 'selector': 'app-react-dnd-demo'},{'name': 'ReactHookFormDemoComponent', 'selector': 'app-react-hook-form-demo'},{'name': 'ReactIconDemoComponent', 'selector': 'app-react-icon-demo'},{'name': 'ReactSpinnersDemoComponent', 'selector': 'app-react-spinners-demo'},{'name': 'RichTextComponent', 'selector': 'app-rich-text'},{'name': 'TipTapDemoComponent', 'selector': ''},{'name': 'TipTapHelloComponent', 'selector': 'app-hello'},{'name': 'ToastComponent', 'selector': 'app-toast'}];
+    var COMPONENTS = [{'name': 'AntdDemoComponent', 'selector': 'app-antd-demo'},{'name': 'AntDesignVueDemoComponent', 'selector': 'app-ant-design-vue-demo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'CustomLayoutComponent', 'selector': 'app-custom-layout'},{'name': 'CustomNode2Component', 'selector': 'app-custom-node'},{'name': 'CustomNodeComponent', 'selector': 'app-custom-node'},{'name': 'CustomNodeExamplesComponent', 'selector': 'app-custom-node-examples'},{'name': 'CustomTitleComponent', 'selector': ''},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'ExcalidrawDemoComponent', 'selector': 'app-excalidraw-demo'},{'name': 'HelloComponent', 'selector': 'app-hello'},{'name': 'MenubarComponent', 'selector': 'app-menubar'},{'name': 'NgAComponent', 'selector': 'ng-a'},{'name': 'PdfDemoComponent', 'selector': 'app-pdf-demo'},{'name': 'ReactDndDemoComponent', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent2', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent3', 'selector': 'app-react-dnd-demo'},{'name': 'ReactHookFormDemoComponent', 'selector': 'app-react-hook-form-demo'},{'name': 'ReactIconDemoComponent', 'selector': 'app-react-icon-demo'},{'name': 'ReactSpinnersDemoComponent', 'selector': 'app-react-spinners-demo'},{'name': 'RichTextComponent', 'selector': 'app-rich-text'},{'name': 'TipTapDemoComponent', 'selector': ''},{'name': 'TipTapHelloComponent', 'selector': 'app-hello'},{'name': 'ToastComponent', 'selector': 'app-toast'},{'name': 'VueTestComponent', 'selector': 'app-vue-test'},{'name': 'VueTransitionDemoComponent', 'selector': 'app-vue-transition-demo'}];
     var DIRECTIVES = [{'name': 'InputDirective', 'selector': '[reactInput]'}];
     var ACTUAL_COMPONENT = {'name': 'TipTapDemoComponent'};
 </script>

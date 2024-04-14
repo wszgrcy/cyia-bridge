@@ -212,7 +212,7 @@
 import { ItemTypes } from &#x27;../types&#x27;;
 import { useDrag } from &#x27;react-dnd&#x27;;
 import { CSSProperties } from &#x27;react&#x27;;
-import { ComponentWrapper } from &#x27;@cyia/ngx-bridge&#x27;;
+import { ReactComponentWrapper } from &#x27;@cyia/ngx-bridge&#x27;;
 const style: CSSProperties &#x3D; {
   border: &#x27;1px dashed gray&#x27;,
   backgroundColor: &#x27;white&#x27;,
@@ -237,7 +237,7 @@ interface DropResult {
   templateUrl: &#x27;./box.component.html&#x27;,
   styleUrl: &#x27;./box.component.scss&#x27;,
 })
-export class BoxComponent implements ComponentWrapper {
+export class BoxComponent implements ReactComponentWrapper {
   static runInReact &#x3D; ({ name }: any) &#x3D;&gt; {
     const [{ isDragging }, drag] &#x3D; useDrag(() &#x3D;&gt; ({
       type: ItemTypes.BOX,

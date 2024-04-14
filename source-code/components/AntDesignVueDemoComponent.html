@@ -1,0 +1,798 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-bridge documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">ngx-bridge documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AntDesignVueDemoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-ant-design-vue-demo</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">Standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>VueOutlet</code>
+                            <code>VueSlotGroup</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./ant-design-vue-demo.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./ant-design-vue-demo.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bindModel" >bindModel</a>
+                            </li>
+                            <li>
+                                <a href="#Button" >Button</a>
+                            </li>
+                            <li>
+                                <a href="#ButtonGroup" >ButtonGroup</a>
+                            </li>
+                            <li>
+                                <a href="#decline" >decline</a>
+                            </li>
+                            <li>
+                                <a href="#defaultPercent" >defaultPercent</a>
+                            </li>
+                            <li>
+                                <a href="#increase" >increase</a>
+                            </li>
+                            <li>
+                                <a href="#Progress" >Progress</a>
+                            </li>
+                            <li>
+                                <a href="#props" >props</a>
+                            </li>
+                            <li>
+                                <a href="#Space" >Space</a>
+                            </li>
+                            <li>
+                                <a href="#Tree" >Tree</a>
+                            </li>
+                            <li>
+                                <a href="#treeData" >treeData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bindModel"></a>
+                    <span class="name">
+                        <span ><b>bindModel</b></span>
+                        <a href="#bindModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ expandedKeys, selectedKeys, checkedKeys }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Button"></a>
+                    <span class="name">
+                        <span ><b>Button</b></span>
+                        <a href="#Button"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Button</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ButtonGroup"></a>
+                    <span class="name">
+                        <span ><b>ButtonGroup</b></span>
+                        <a href="#ButtonGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ButtonGroup</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="decline"></a>
+                    <span class="name">
+                        <span ><b>decline</b></span>
+                        <a href="#decline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultPercent"></a>
+                    <span class="name">
+                        <span ><b>defaultPercent</b></span>
+                        <a href="#defaultPercent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="increase"></a>
+                    <span class="name">
+                        <span ><b>increase</b></span>
+                        <a href="#increase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Progress"></a>
+                    <span class="name">
+                        <span ><b>Progress</b></span>
+                        <a href="#Progress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Progress</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="props"></a>
+                    <span class="name">
+                        <span ><b>props</b></span>
+                        <a href="#props"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    checkable: true,
+    treeData: treeData,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Space"></a>
+                    <span class="name">
+                        <span ><b>Space</b></span>
+                        <a href="#Space"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Space</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Tree"></a>
+                    <span class="name">
+                        <span ><b>Tree</b></span>
+                        <a href="#Tree"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Tree</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="treeData"></a>
+                    <span class="name">
+                        <span ><b>treeData</b></span>
+                        <a href="#treeData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>treeData</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/ant-design-vue/ant-design-vue-demo/ant-design-vue-demo.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { VueOutlet, VueSlotGroup } from &#x27;@cyia/ngx-bridge/vue-outlet&#x27;;
+import {
+  Button,
+  Space,
+  Tree,
+  TreeProps,
+  Progress,
+  ButtonGroup,
+} from &#x27;ant-design-vue&#x27;;
+const treeData: TreeProps[&#x27;treeData&#x27;] &#x3D; [
+  {
+    title: &#x27;parent 1&#x27;,
+    key: &#x27;0-0&#x27;,
+    children: [
+      {
+        title: &#x27;parent 1-0&#x27;,
+        key: &#x27;0-0-0&#x27;,
+        disabled: true,
+        children: [
+          { title: &#x27;leaf&#x27;, key: &#x27;0-0-0-0&#x27;, disableCheckbox: true },
+          { title: &#x27;leaf&#x27;, key: &#x27;0-0-0-1&#x27; },
+        ],
+      },
+      {
+        title: &#x27;parent 1-1&#x27;,
+        key: &#x27;0-0-1&#x27;,
+        children: [{ key: &#x27;0-0-1-0&#x27;, title: &#x27;sss&#x27; }],
+      },
+    ],
+  },
+];
+const expandedKeys &#x3D; [&#x27;0-0-0&#x27;, &#x27;0-0-1&#x27;];
+const selectedKeys &#x3D; [&#x27;0-0-0&#x27;, &#x27;0-0-1&#x27;];
+const checkedKeys &#x3D; [&#x27;0-0-0&#x27;, &#x27;0-0-1&#x27;];
+@Component({
+  selector: &#x27;app-ant-design-vue-demo&#x27;,
+  standalone: true,
+  imports: [VueOutlet, VueSlotGroup],
+  templateUrl: &#x27;./ant-design-vue-demo.component.html&#x27;,
+  styleUrl: &#x27;./ant-design-vue-demo.component.scss&#x27;,
+})
+export class AntDesignVueDemoComponent {
+  Button &#x3D; Button;
+  Space &#x3D; Space;
+  Tree &#x3D; Tree;
+  Progress &#x3D; Progress;
+  ButtonGroup &#x3D; ButtonGroup;
+  defaultPercent &#x3D; 0;
+  treeData &#x3D; treeData;
+  bindModel &#x3D; { expandedKeys, selectedKeys, checkedKeys };
+  props &#x3D; {
+    checkable: true,
+    treeData: treeData,
+  };
+  decline &#x3D; () &#x3D;&gt; {
+    const percent &#x3D; this.defaultPercent - 10;
+    this.defaultPercent &#x3D; percent &lt; 0 ? 0 : percent;
+  };
+  increase &#x3D; () &#x3D;&gt; {
+    const percent &#x3D; this.defaultPercent + 10;
+    this.defaultPercent &#x3D; percent &gt; 100 ? 100 : percent;
+  };
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;margin-bottom: 8px&quot;&gt;
+  &lt;vue-outlet [component]&#x3D;&quot;Space&quot; [root]&#x3D;&quot;true&quot; [props]&#x3D;&quot;{ wrap: true }&quot;&gt;
+    &lt;vue-outlet [component]&#x3D;&quot;Button&quot; [props]&#x3D;&quot;{ type: &#x27;primary&#x27; }&quot; #child&gt;
+      &lt;ng-template #child&gt; Primary Button &lt;/ng-template&gt;
+    &lt;/vue-outlet&gt;
+    &lt;vue-outlet [component]&#x3D;&quot;Button&quot; #child&gt;
+      &lt;ng-template #child&gt; Default Button &lt;/ng-template&gt;
+    &lt;/vue-outlet&gt;
+    &lt;vue-outlet [component]&#x3D;&quot;Button&quot; [props]&#x3D;&quot;{ type: &#x27;dashed&#x27; }&quot; #child&gt;
+      &lt;ng-template #child&gt; Dashed Button &lt;/ng-template&gt;
+    &lt;/vue-outlet&gt;
+    &lt;vue-outlet [component]&#x3D;&quot;Button&quot; [props]&#x3D;&quot;{ type: &#x27;text&#x27; }&quot; #child&gt;
+      &lt;ng-template #child&gt; Text Button &lt;/ng-template&gt;
+    &lt;/vue-outlet&gt;
+    &lt;vue-outlet [component]&#x3D;&quot;Button&quot; [props]&#x3D;&quot;{ type: &#x27;link&#x27; }&quot; #child&gt;
+      &lt;ng-template #child&gt; Link Button &lt;/ng-template&gt;
+    &lt;/vue-outlet&gt;
+  &lt;/vue-outlet&gt;
+&lt;/div&gt;
+&lt;vue-outlet
+  [component]&#x3D;&quot;Tree&quot;
+  [root]&#x3D;&quot;true&quot;
+  [model]&#x3D;&quot;bindModel&quot;
+  [props]&#x3D;&quot;props&quot;
+&gt;
+  &lt;vue-slot-group [name]&#x3D;&quot;&#x27;title&#x27;&quot;&gt;
+    &lt;ng-template #child let-key&#x3D;&quot;key&quot; let-title&#x3D;&quot;title&quot;&gt;
+      @if (key &#x3D;&#x3D;&#x3D; &#x27;0-0-1-0&#x27;) {
+      &lt;span style&#x3D;&quot;color: #1890ff&quot;&gt;{{ title }}&lt;/span&gt;
+      }@else{
+      {{ title }}
+      }
+    &lt;/ng-template&gt;
+  &lt;/vue-slot-group&gt;
+&lt;/vue-outlet&gt;
+
+&lt;div&gt;
+  &lt;vue-outlet
+    [root]&#x3D;&quot;true&quot;
+    [component]&#x3D;&quot;Progress&quot;
+    [props]&#x3D;&quot;{ percent: defaultPercent }&quot;
+  &gt;&lt;/vue-outlet&gt;
+  &lt;vue-outlet [root]&#x3D;&quot;true&quot; [component]&#x3D;&quot;ButtonGroup&quot;&gt;
+    &lt;vue-outlet
+      [component]&#x3D;&quot;Button&quot;
+      [emits]&#x3D;&quot;{ click: decline }&quot;
+      [children]&#x3D;&quot;[&#x27;-&#x27;]&quot;
+      #child
+    &gt;
+    &lt;/vue-outlet&gt;
+    &lt;vue-outlet
+      [component]&#x3D;&quot;Button&quot;
+      [emits]&#x3D;&quot;{ click: increase }&quot;
+      [children]&#x3D;&quot;[&#x27;+&#x27;]&quot;
+      #child
+    &gt;&lt;/vue-outlet&gt;
+  &lt;/vue-outlet&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div style="margin-bottom: 8px">  <vue-outlet [component]="Space" [root]="true" [props]="{ wrap: true }">    <vue-outlet [component]="Button" [props]="{ type: \'primary\' }" #child>      <ng-template #child> Primary Button </ng-template>    </vue-outlet>    <vue-outlet [component]="Button" #child>      <ng-template #child> Default Button </ng-template>    </vue-outlet>    <vue-outlet [component]="Button" [props]="{ type: \'dashed\' }" #child>      <ng-template #child> Dashed Button </ng-template>    </vue-outlet>    <vue-outlet [component]="Button" [props]="{ type: \'text\' }" #child>      <ng-template #child> Text Button </ng-template>    </vue-outlet>    <vue-outlet [component]="Button" [props]="{ type: \'link\' }" #child>      <ng-template #child> Link Button </ng-template>    </vue-outlet>  </vue-outlet></div><vue-outlet  [component]="Tree"  [root]="true"  [model]="bindModel"  [props]="props">  <vue-slot-group [name]="\'title\'">    <ng-template #child let-key="key" let-title="title">      @if (key === \'0-0-1-0\') {      <span style="color: #1890ff">{{ title }}</span>      }@else{      {{ title }}      }    </ng-template>  </vue-slot-group></vue-outlet><div>  <vue-outlet    [root]="true"    [component]="Progress"    [props]="{ percent: defaultPercent }"  ></vue-outlet>  <vue-outlet [root]="true" [component]="ButtonGroup">    <vue-outlet      [component]="Button"      [emits]="{ click: decline }"      [children]="[\'-\']"      #child    >    </vue-outlet>    <vue-outlet      [component]="Button"      [emits]="{ click: increase }"      [children]="[\'+\']"      #child    ></vue-outlet>  </vue-outlet></div></div>'
+    var COMPONENTS = [{'name': 'AntdDemoComponent', 'selector': 'app-antd-demo'},{'name': 'AntDesignVueDemoComponent', 'selector': 'app-ant-design-vue-demo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'CustomLayoutComponent', 'selector': 'app-custom-layout'},{'name': 'CustomNode2Component', 'selector': 'app-custom-node'},{'name': 'CustomNodeComponent', 'selector': 'app-custom-node'},{'name': 'CustomNodeExamplesComponent', 'selector': 'app-custom-node-examples'},{'name': 'CustomTitleComponent', 'selector': ''},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'ExcalidrawDemoComponent', 'selector': 'app-excalidraw-demo'},{'name': 'HelloComponent', 'selector': 'app-hello'},{'name': 'MenubarComponent', 'selector': 'app-menubar'},{'name': 'NgAComponent', 'selector': 'ng-a'},{'name': 'PdfDemoComponent', 'selector': 'app-pdf-demo'},{'name': 'ReactDndDemoComponent', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent2', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent3', 'selector': 'app-react-dnd-demo'},{'name': 'ReactHookFormDemoComponent', 'selector': 'app-react-hook-form-demo'},{'name': 'ReactIconDemoComponent', 'selector': 'app-react-icon-demo'},{'name': 'ReactSpinnersDemoComponent', 'selector': 'app-react-spinners-demo'},{'name': 'RichTextComponent', 'selector': 'app-rich-text'},{'name': 'TipTapDemoComponent', 'selector': ''},{'name': 'TipTapHelloComponent', 'selector': 'app-hello'},{'name': 'ToastComponent', 'selector': 'app-toast'},{'name': 'VueTestComponent', 'selector': 'app-vue-test'},{'name': 'VueTransitionDemoComponent', 'selector': 'app-vue-transition-demo'}];
+    var DIRECTIVES = [{'name': 'InputDirective', 'selector': '[reactInput]'}];
+    var ACTUAL_COMPONENT = {'name': 'AntDesignVueDemoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AntDesignVueDemoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

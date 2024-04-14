@@ -574,7 +574,7 @@ import {
 } from &#x27;reactflow&#x27;;
 import { Testa } from &#x27;./a.react.component&#x27;;
 import { ReactB } from &#x27;./react-b.component&#x27;;
-import { componentWrapper } from &#x27;@cyia/ngx-bridge&#x27;;
+import { wrapperToReact } from &#x27;@cyia/ngx-bridge&#x27;;
 import { NgAComponent } from &#x27;./ng-a.component&#x27;;
 import { ReactC } from &#x27;./react-c.component&#x27;;
 import { createElement, useMemo } from &#x27;react&#x27;;
@@ -619,7 +619,7 @@ export class AppComponent {
 
   reactBProps &#x3D; () &#x3D;&gt; {
     return {
-      el: componentWrapper(NgAComponent, {
+      el: wrapperToReact(NgAComponent, {
         environmentInjector: this.#environmentInjector,
       }).reactElement,
     };
@@ -655,7 +655,9 @@ export class AppComponent {
 
       @for (item of sourceCodeList; track $index) {
       &lt;td&gt;
-        &lt;a [href]&#x3D;&quot;&#x27;./source-code/components/&#x27; + item + &#x27;.html&#x27;&quot; target&#x3D;&quot;_blank&quot;&gt;跳转&lt;/a&gt;
+        &lt;a [href]&#x3D;&quot;&#x27;./source-code/components/&#x27; + item + &#x27;.html&#x27;&quot; target&#x3D;&quot;_blank&quot;
+          &gt;跳转&lt;/a
+        &gt;
       &lt;/td&gt;
       }
     &lt;/tr&gt;
@@ -715,9 +717,41 @@ export class AppComponent {
       &lt;td&gt;源码&lt;/td&gt;
 
       &lt;td&gt;
-        &lt;a [href]&#x3D;&quot;&#x27;./source-code/components/&#x27; + &#x27;ExcalidrawDemoComponent&#x27; + &#x27;.html&#x27;&quot; target&#x3D;&quot;_blank&quot;&gt;跳转&lt;/a&gt;
+        &lt;a
+          [href]&#x3D;&quot;
+            &#x27;./source-code/components/&#x27; + &#x27;ExcalidrawDemoComponent&#x27; + &#x27;.html&#x27;
+          &quot;
+          target&#x3D;&quot;_blank&quot;
+          &gt;跳转&lt;/a
+        &gt;
       &lt;/td&gt;
-   
+      &lt;td&gt;
+        &lt;a
+          [href]&#x3D;&quot;
+            &#x27;./source-code/components/&#x27; + &#x27;AntDesignVueDemoComponent&#x27; + &#x27;.html&#x27;
+          &quot;
+          target&#x3D;&quot;_blank&quot;
+          &gt;跳转&lt;/a
+        &gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;a
+          [href]&#x3D;&quot;
+            &#x27;./source-code/components/&#x27; + &#x27;VueTransitionDemoComponent&#x27; + &#x27;.html&#x27;
+          &quot;
+          target&#x3D;&quot;_blank&quot;
+          &gt;跳转&lt;/a
+        &gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;a
+          [href]&#x3D;&quot;
+            &#x27;./source-code/components/&#x27; + &#x27;VueTestComponent&#x27; + &#x27;.html&#x27;
+          &quot;
+          target&#x3D;&quot;_blank&quot;
+          &gt;跳转&lt;/a
+        &gt;
+      &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;演示&lt;/td&gt;
@@ -726,7 +760,15 @@ export class AppComponent {
           &gt;excalidraw/excalidraw-demo&lt;/a
         &gt;
       &lt;/td&gt;
-     
+      &lt;td&gt;
+        &lt;a [routerLink]&#x3D;&quot;[&#x27;/ant-design-vue&#x27;, &#x27;demo&#x27;]&quot;&gt;ant-design-vue/demo&lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;a [routerLink]&#x3D;&quot;[&#x27;/vue-transition&#x27;, &#x27;demo&#x27;]&quot;&gt;vue-transition/demo&lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;a [routerLink]&#x3D;&quot;[&#x27;/vue-test&#x27;, &#x27;test&#x27;]&quot;&gt;vue-test/test&lt;/a&gt;
+      &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -761,8 +803,8 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- <react-outlet  [component]="Testa"  [props]="{ value1: \'123\', value2: 1234 }"  [root]="true"></react-outlet>@if (switchValue) {<react-outlet  [component]="ReactB"  [props]="reactBProps"  [root]="true"></react-outlet>}<react-outlet [component]="ReactC" [root]="true">  @if (switchValue) {  <span #child>hello</span>}</react-outlet> --><table>  <tbody>    <tr>      <td>源码</td>      @for (item of sourceCodeList; track $index) {      <td>        <a [href]="\'./source-code/components/\' + item + \'.html\'" target="_blank">跳转</a>      </td>      }    </tr>    <tr>      <td>演示</td>      <td>        <a [routerLink]="[\'/reactflow\', \'custom-layout\']"          >reactflow/custom-layout</a        >      </td>      <td>        <a [routerLink]="[\'/reactflow\', \'custom-node\']"          >reactflow/custom-node</a        >      </td>      <td><a [routerLink]="[\'/slate\', \'hello\']">slate/hello</a></td>      <td><a [routerLink]="[\'/slate\', \'rich-text\']">slate/rich-text</a></td>      <td><a [routerLink]="[\'/tiptap\', \'hello\']">tiptap/hello</a></td>      <td><a [routerLink]="[\'/tiptap\', \'demo\']">tiptap/demo</a></td>      <td>        <a [routerLink]="[\'/react-hot-toast\', \'hello\']"          >react-hot-toast/hello</a        >      </td>      <td><a [routerLink]="[\'/react-pdf\', \'hello\']">react-pdf/hello</a></td>      <td><a [routerLink]="[\'/antd\', \'demo\']">antd/demo</a></td>      <td>        <a [routerLink]="[\'/icon\', \'react-icons-demo\']"          >icon/react-icons-demo</a        >      </td>      <td>        <a [routerLink]="[\'/spinner\', \'react-spinners-demo\']"          >spinner/react-spinners-demo</a        >      </td>      <td>        <a [routerLink]="[\'/dnd\', \'react-dnd-demo\']">dnd/react-dnd-demo</a>      </td>      <td>        <a [routerLink]="[\'/dnd\', \'react-dnd-demo2\']">dnd/react-dnd-demo2</a>      </td>      <td>        <a [routerLink]="[\'/dnd\', \'react-dnd-demo3\']">dnd/react-dnd-demo3</a>      </td>      <td>        <a [routerLink]="[\'/form\', \'react-hook-form-demo\']"          >form/react-hook-form-demo</a        >      </td>    </tr>  </tbody></table><table>  <tbody>    <tr>      <td>源码</td>      <td>        <a [href]="\'./source-code/components/\' + \'ExcalidrawDemoComponent\' + \'.html\'" target="_blank">跳转</a>      </td>       </tr>    <tr>      <td>演示</td>      <td>        <a [routerLink]="[\'/excalidraw\', \'excalidraw-demo\']"          >excalidraw/excalidraw-demo</a        >      </td>         </tr>  </tbody></table><div style="display: flex; gap: 8px"></div><router-outlet></router-outlet></div>'
-    var COMPONENTS = [{'name': 'AntdDemoComponent', 'selector': 'app-antd-demo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'CustomLayoutComponent', 'selector': 'app-custom-layout'},{'name': 'CustomNode2Component', 'selector': 'app-custom-node'},{'name': 'CustomNodeComponent', 'selector': 'app-custom-node'},{'name': 'CustomNodeExamplesComponent', 'selector': 'app-custom-node-examples'},{'name': 'CustomTitleComponent', 'selector': ''},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'ExcalidrawDemoComponent', 'selector': 'app-excalidraw-demo'},{'name': 'HelloComponent', 'selector': 'app-hello'},{'name': 'MenubarComponent', 'selector': 'app-menubar'},{'name': 'NgAComponent', 'selector': 'ng-a'},{'name': 'PdfDemoComponent', 'selector': 'app-pdf-demo'},{'name': 'ReactDndDemoComponent', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent2', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent3', 'selector': 'app-react-dnd-demo'},{'name': 'ReactHookFormDemoComponent', 'selector': 'app-react-hook-form-demo'},{'name': 'ReactIconDemoComponent', 'selector': 'app-react-icon-demo'},{'name': 'ReactSpinnersDemoComponent', 'selector': 'app-react-spinners-demo'},{'name': 'RichTextComponent', 'selector': 'app-rich-text'},{'name': 'TipTapDemoComponent', 'selector': ''},{'name': 'TipTapHelloComponent', 'selector': 'app-hello'},{'name': 'ToastComponent', 'selector': 'app-toast'}];
+        var COMPONENT_TEMPLATE = '<div><!-- <react-outlet  [component]="Testa"  [props]="{ value1: \'123\', value2: 1234 }"  [root]="true"></react-outlet>@if (switchValue) {<react-outlet  [component]="ReactB"  [props]="reactBProps"  [root]="true"></react-outlet>}<react-outlet [component]="ReactC" [root]="true">  @if (switchValue) {  <span #child>hello</span>}</react-outlet> --><table>  <tbody>    <tr>      <td>源码</td>      @for (item of sourceCodeList; track $index) {      <td>        <a [href]="\'./source-code/components/\' + item + \'.html\'" target="_blank"          >跳转</a        >      </td>      }    </tr>    <tr>      <td>演示</td>      <td>        <a [routerLink]="[\'/reactflow\', \'custom-layout\']"          >reactflow/custom-layout</a        >      </td>      <td>        <a [routerLink]="[\'/reactflow\', \'custom-node\']"          >reactflow/custom-node</a        >      </td>      <td><a [routerLink]="[\'/slate\', \'hello\']">slate/hello</a></td>      <td><a [routerLink]="[\'/slate\', \'rich-text\']">slate/rich-text</a></td>      <td><a [routerLink]="[\'/tiptap\', \'hello\']">tiptap/hello</a></td>      <td><a [routerLink]="[\'/tiptap\', \'demo\']">tiptap/demo</a></td>      <td>        <a [routerLink]="[\'/react-hot-toast\', \'hello\']"          >react-hot-toast/hello</a        >      </td>      <td><a [routerLink]="[\'/react-pdf\', \'hello\']">react-pdf/hello</a></td>      <td><a [routerLink]="[\'/antd\', \'demo\']">antd/demo</a></td>      <td>        <a [routerLink]="[\'/icon\', \'react-icons-demo\']"          >icon/react-icons-demo</a        >      </td>      <td>        <a [routerLink]="[\'/spinner\', \'react-spinners-demo\']"          >spinner/react-spinners-demo</a        >      </td>      <td>        <a [routerLink]="[\'/dnd\', \'react-dnd-demo\']">dnd/react-dnd-demo</a>      </td>      <td>        <a [routerLink]="[\'/dnd\', \'react-dnd-demo2\']">dnd/react-dnd-demo2</a>      </td>      <td>        <a [routerLink]="[\'/dnd\', \'react-dnd-demo3\']">dnd/react-dnd-demo3</a>      </td>      <td>        <a [routerLink]="[\'/form\', \'react-hook-form-demo\']"          >form/react-hook-form-demo</a        >      </td>    </tr>  </tbody></table><table>  <tbody>    <tr>      <td>源码</td>      <td>        <a          [href]="            \'./source-code/components/\' + \'ExcalidrawDemoComponent\' + \'.html\'          "          target="_blank"          >跳转</a        >      </td>      <td>        <a          [href]="            \'./source-code/components/\' + \'AntDesignVueDemoComponent\' + \'.html\'          "          target="_blank"          >跳转</a        >      </td>      <td>        <a          [href]="            \'./source-code/components/\' + \'VueTransitionDemoComponent\' + \'.html\'          "          target="_blank"          >跳转</a        >      </td>      <td>        <a          [href]="            \'./source-code/components/\' + \'VueTestComponent\' + \'.html\'          "          target="_blank"          >跳转</a        >      </td>    </tr>    <tr>      <td>演示</td>      <td>        <a [routerLink]="[\'/excalidraw\', \'excalidraw-demo\']"          >excalidraw/excalidraw-demo</a        >      </td>      <td>        <a [routerLink]="[\'/ant-design-vue\', \'demo\']">ant-design-vue/demo</a>      </td>      <td>        <a [routerLink]="[\'/vue-transition\', \'demo\']">vue-transition/demo</a>      </td>      <td>        <a [routerLink]="[\'/vue-test\', \'test\']">vue-test/test</a>      </td>    </tr>  </tbody></table><div style="display: flex; gap: 8px"></div><router-outlet></router-outlet></div>'
+    var COMPONENTS = [{'name': 'AntdDemoComponent', 'selector': 'app-antd-demo'},{'name': 'AntDesignVueDemoComponent', 'selector': 'app-ant-design-vue-demo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'CustomLayoutComponent', 'selector': 'app-custom-layout'},{'name': 'CustomNode2Component', 'selector': 'app-custom-node'},{'name': 'CustomNodeComponent', 'selector': 'app-custom-node'},{'name': 'CustomNodeExamplesComponent', 'selector': 'app-custom-node-examples'},{'name': 'CustomTitleComponent', 'selector': ''},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'ExcalidrawDemoComponent', 'selector': 'app-excalidraw-demo'},{'name': 'HelloComponent', 'selector': 'app-hello'},{'name': 'MenubarComponent', 'selector': 'app-menubar'},{'name': 'NgAComponent', 'selector': 'ng-a'},{'name': 'PdfDemoComponent', 'selector': 'app-pdf-demo'},{'name': 'ReactDndDemoComponent', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent2', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent3', 'selector': 'app-react-dnd-demo'},{'name': 'ReactHookFormDemoComponent', 'selector': 'app-react-hook-form-demo'},{'name': 'ReactIconDemoComponent', 'selector': 'app-react-icon-demo'},{'name': 'ReactSpinnersDemoComponent', 'selector': 'app-react-spinners-demo'},{'name': 'RichTextComponent', 'selector': 'app-rich-text'},{'name': 'TipTapDemoComponent', 'selector': ''},{'name': 'TipTapHelloComponent', 'selector': 'app-hello'},{'name': 'ToastComponent', 'selector': 'app-toast'},{'name': 'VueTestComponent', 'selector': 'app-vue-test'},{'name': 'VueTransitionDemoComponent', 'selector': 'app-vue-transition-demo'}];
     var DIRECTIVES = [{'name': 'InputDirective', 'selector': '[reactInput]'}];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

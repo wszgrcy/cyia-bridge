@@ -160,7 +160,7 @@
 
             <tr>
                 <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">NgAComponent Hello</code></pre></td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">NgAComponent Hello:{{ props()?.value }}</code></pre></td>
             </tr>
 
 
@@ -179,6 +179,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#props" >props</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -217,7 +231,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/ng-a.component.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/ng-a.component.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -254,8 +268,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/app/ng-a.component.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="14"
+                                    class="link-to-prism">src/app/ng-a.component.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -291,8 +305,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="10"
-                                    class="link-to-prism">src/app/ng-a.component.ts:10</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="11"
+                                    class="link-to-prism">src/app/ng-a.component.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -309,22 +323,54 @@
         </tbody>
     </table>
 </section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="props"></a>
+                    <span class="name">
+                        <span ><b>props</b></span>
+                        <a href="#props"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input&lt;any&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/ng-a.component.ts:8</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, input } from &#x27;@angular/core&#x27;;
 
 @Component({
   selector: &#x27;ng-a&#x27;,
-  template: &#x60;NgAComponent Hello&#x60;,
+  template: &#x60;NgAComponent Hello:{{ props()?.value }}&#x60;,
 })
 export class NgAComponent implements OnInit {
+  props &#x3D; input&lt;any&gt;();
   constructor() {}
 
   ngOnInit(): void {
-    console.log(&#x60;NgAComponent-ngOnInit&#x60;,(window as any).Zone.current.name);
+    console.log(&#x60;NgAComponent-ngOnInit&#x60;, (window as any).Zone.current.name);
   }
   ngOnDestroy(): void {
     console.log(&#x60;NgAComponent-ngOnDestroy&#x60;);
@@ -360,8 +406,8 @@ export class NgAComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>NgAComponent Hello</div>'
-    var COMPONENTS = [{'name': 'AntdDemoComponent', 'selector': 'app-antd-demo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'CustomLayoutComponent', 'selector': 'app-custom-layout'},{'name': 'CustomNode2Component', 'selector': 'app-custom-node'},{'name': 'CustomNodeComponent', 'selector': 'app-custom-node'},{'name': 'CustomNodeExamplesComponent', 'selector': 'app-custom-node-examples'},{'name': 'CustomTitleComponent', 'selector': ''},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'ExcalidrawDemoComponent', 'selector': 'app-excalidraw-demo'},{'name': 'HelloComponent', 'selector': 'app-hello'},{'name': 'MenubarComponent', 'selector': 'app-menubar'},{'name': 'NgAComponent', 'selector': 'ng-a'},{'name': 'PdfDemoComponent', 'selector': 'app-pdf-demo'},{'name': 'ReactDndDemoComponent', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent2', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent3', 'selector': 'app-react-dnd-demo'},{'name': 'ReactHookFormDemoComponent', 'selector': 'app-react-hook-form-demo'},{'name': 'ReactIconDemoComponent', 'selector': 'app-react-icon-demo'},{'name': 'ReactSpinnersDemoComponent', 'selector': 'app-react-spinners-demo'},{'name': 'RichTextComponent', 'selector': 'app-rich-text'},{'name': 'TipTapDemoComponent', 'selector': ''},{'name': 'TipTapHelloComponent', 'selector': 'app-hello'},{'name': 'ToastComponent', 'selector': 'app-toast'}];
+        var COMPONENT_TEMPLATE = '<div>NgAComponent Hello:{{ props()?.value }}</div>'
+    var COMPONENTS = [{'name': 'AntdDemoComponent', 'selector': 'app-antd-demo'},{'name': 'AntDesignVueDemoComponent', 'selector': 'app-ant-design-vue-demo'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'BoxComponent', 'selector': 'app-box'},{'name': 'CustomLayoutComponent', 'selector': 'app-custom-layout'},{'name': 'CustomNode2Component', 'selector': 'app-custom-node'},{'name': 'CustomNodeComponent', 'selector': 'app-custom-node'},{'name': 'CustomNodeExamplesComponent', 'selector': 'app-custom-node-examples'},{'name': 'CustomTitleComponent', 'selector': ''},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'DustbinComponent', 'selector': 'app-dustbin'},{'name': 'ExcalidrawDemoComponent', 'selector': 'app-excalidraw-demo'},{'name': 'HelloComponent', 'selector': 'app-hello'},{'name': 'MenubarComponent', 'selector': 'app-menubar'},{'name': 'NgAComponent', 'selector': 'ng-a'},{'name': 'PdfDemoComponent', 'selector': 'app-pdf-demo'},{'name': 'ReactDndDemoComponent', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent2', 'selector': 'app-react-dnd-demo'},{'name': 'ReactDndDemoComponent3', 'selector': 'app-react-dnd-demo'},{'name': 'ReactHookFormDemoComponent', 'selector': 'app-react-hook-form-demo'},{'name': 'ReactIconDemoComponent', 'selector': 'app-react-icon-demo'},{'name': 'ReactSpinnersDemoComponent', 'selector': 'app-react-spinners-demo'},{'name': 'RichTextComponent', 'selector': 'app-rich-text'},{'name': 'TipTapDemoComponent', 'selector': ''},{'name': 'TipTapHelloComponent', 'selector': 'app-hello'},{'name': 'ToastComponent', 'selector': 'app-toast'},{'name': 'VueTestComponent', 'selector': 'app-vue-test'},{'name': 'VueTransitionDemoComponent', 'selector': 'app-vue-transition-demo'}];
     var DIRECTIVES = [{'name': 'InputDirective', 'selector': '[reactInput]'}];
     var ACTUAL_COMPONENT = {'name': 'NgAComponent'};
 </script>

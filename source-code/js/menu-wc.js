@@ -57,6 +57,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/AntdDemoComponent.html" data-type="entity-link" >AntdDemoComponent</a>
                             </li>
                             <li class="link">
+                                <a href="components/AntDesignVueDemoComponent.html" data-type="entity-link" >AntDesignVueDemoComponent</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/AppComponent.html" data-type="entity-link" >AppComponent</a>
                             </li>
                             <li class="link">
@@ -130,6 +133,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="components/ToastComponent.html" data-type="entity-link" >ToastComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/VueTestComponent.html" data-type="entity-link" >VueTestComponent</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/VueTransitionDemoComponent.html" data-type="entity-link" >VueTransitionDemoComponent</a>
                             </li>
                         </ul>
                     </li>
